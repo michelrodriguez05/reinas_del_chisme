@@ -1,0 +1,23 @@
+{
+  "name": "reinas_del_chisme",
+  "version": "1.0.0",
+  "description": "lo mejor en chismes",
+  "keywords": [
+    "gossips"
+  ],
+  "homepage": "https://github.com/michelrodriguez05/reinas_del_chisme#readme",
+  "bugs": {
+    "url": "https://github.com/michelrodriguez05/reinas_del_chisme/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michelrodriguez05/reinas_del_chisme.git"
+  },
+  "license": "ISC",
+  "author": "Michel Rubio, Joan Gómez",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

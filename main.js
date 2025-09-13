@@ -56,8 +56,6 @@ async function menuPrincipal() {
                 // opciones a elegir
                 choices: [
                     {name: '🥊 PELEA DE CHISMOSAS 🥊', value: "pelea"},
-                    {name: '👾 - Chismosa más VIRAL', value: "viral"},
-                    {name: '💥 - Chismes en tendencia', value: "tendencia"},
                     {name: '🚶‍♂️‍➡️ - Salir', value: "salir"}
                 ]
             }
@@ -69,16 +67,6 @@ async function menuPrincipal() {
             // Opción para realizar la pelea
             case 'pelea':
                 console.log("🥊 PELEA DE CHISMOSAS 🥊")
-                await pausar();
-                break;
-            // Opción para la chismosa mas viral
-            case 'viral':
-                console.log("👾 - Chismosa más VIRAL")
-                await pausar();
-                break;
-            // Opción de chismes en tendencia
-            case 'tendencia':
-                console.log("💥 - Chismes en tendencia")
                 await pausar();
                 break;
             // Opción de salir
@@ -95,5 +83,7 @@ async function main() {
     mostrarBienvenida();
     await menuPrincipal();
 }
+
+
 
 main();

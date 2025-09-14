@@ -1,11 +1,11 @@
-// se importa la libreria "inquirer"
-const inquirer = require('inquirer');
+import inquirer from "inquirer";
+import chalk from "chalk";
+import boxen from "boxen";
 
-// Se importa la libreria "chalk"
-const chalk = require('chalk');
-
-// Se importa la libreria "boxen"
-const boxen = require('boxen');
+// Importación de subclases
+import TiaVecina from "./classes/tiaVecina.js";
+import CompaneraCuriosa from "./classes/companeraCuriosa.js";
+import EstudianteEspia from "./classes/estudianteEspia.js";
 
 // Se crea la función para mostrar el menú
 function mostrarBienvenida() {
@@ -55,8 +55,8 @@ async function menuPrincipal() {
 
                 // opciones a elegir
                 choices: [
-                    {name: '🥊 PELEA DE CHISMOSAS 🥊', value: "pelea"},
-                    {name: '🚶‍♂️‍➡️ - Salir', value: "salir"}
+                    { name: '🥊 PELEA DE CHISMOSAS 🥊', value: "pelea" },
+                    { name: '🚶‍♂️‍➡️ - Salir', value: "salir" }
                 ]
             }
         ]);
@@ -67,6 +67,7 @@ async function menuPrincipal() {
             // Opción para realizar la pelea
             case 'pelea':
                 console.log("🥊 PELEA DE CHISMOSAS 🥊")
+                peleaChismosas()
                 await pausar();
                 break;
             // Opción de salir
@@ -87,3 +88,44 @@ async function main() {
 
 
 main();
+
+
+function peleaChismosas() {
+    // Crear arreglo con las concursantes
+    let chismosas = [
+        new TiaVecina("Doña Rosa", 7, 0),
+        new CompaneraCuriosa("Claudia", 6, 0),
+        new EstudianteEspia("Kevin", 5, 0),
+    ];
+
+    // Simular 2 rondas por chismosa
+    for (let ronda = 1; ronda <= 2; ronda++) {
+        console.log(chalk.yellowBright(`\nRonda ${ronda} de chismes:`));
+        chismosas.forEach(chismosa => {
+            chismosa.recolectarInfo();
+            chismosa.contarChisme();
+        });
+    }
+
+    // Mostrar estadísticas finales
+    console.log(chalk.cyanBright("\n📊 Resultados finales de la pelea de chismosas:"));
+    chismosas.forEach(chismosa => {
+        let nivelChisme = chismosa.getNivelChisme();
+        let reputacion = chismosa.getReputacion();
+
+        // Colorear según reglas
+        let chismeColor = nivelChisme >= 8 ? chalk.magenta : chalk.whiteBright;
+        let reputacionColor = reputacion >= 7 ? chalk.hex("#FFA500") : reputacion <= 3 ? chalk.black : chalk.whiteBright; 
+
+        console.log(chismeColor(`- ${chismosa.nombre} - Nivel de Chisme: ${nivelChisme}/10`));
+        console.log(reputacionColor(`⭐ Reputación: ${reputacion}/10\n`));
+    });
+
+    // Determinar la chismosa más viral
+    let masViral = chismosas.reduce((conteo, actual) =>
+        actual.getNivelChisme() > conteo.getNivelChisme() ? actual : conteo
+    );
+
+    console.log(chalk.bgMagenta.white(`🏆 La chismosa más viral es: ${masViral.nombre} con nivel ${masViral.getNivelChisme()}/10!`));
+    console.log(chalk.magenta(`💬 Chisme más viral: "${masViral.chismeActual}"`));
+}

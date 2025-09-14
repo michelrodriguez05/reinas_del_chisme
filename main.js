@@ -93,9 +93,9 @@ main();
 function peleaChismosas() {
     // Crear arreglo con las concursantes
     let chismosas = [
-        new TiaVecina("Doña Rosa", 7, 0),
-        new CompaneraCuriosa("Claudia", 6, 0),
-        new EstudianteEspia("Kevin", 5, 0),
+        new TiaVecina("Doña Rosa", 7, 2),
+        new CompaneraCuriosa("Claudia", 6, 1),
+        new EstudianteEspia("Kevin", 5, 1),
     ];
 
     // Simular 2 rondas por chismosa
@@ -125,7 +125,17 @@ function peleaChismosas() {
     let masViral = chismosas.reduce((conteo, actual) =>
         actual.getNivelChisme() > conteo.getNivelChisme() ? actual : conteo
     );
-
-    console.log(chalk.bgMagenta.white(`🏆 La chismosa más viral es: ${masViral.nombre} con nivel ${masViral.getNivelChisme()}/10!`));
-    console.log(chalk.magenta(`💬 Chisme más viral: "${masViral.chismeActual}"`));
+    console.log(
+    boxen(
+        chalk.whiteBright.bgYellow.bold("🏆 GANADOR 🏆\n\n") +
+        chalk.bgMagenta.white(`🏆 La chismosa más viral es: ${masViral.nombre} con nivel ${masViral.getNivelChisme()}/10!\n`) +
+        chalk.magenta(`💬 Chisme más viral: "${masViral.chismeActual}"`),
+            {
+                padding: 1,
+                margin: 1,
+                borderStyle: "doubleSingle",
+                borderColor: "#8A2BE2"
+            }
+        )
+    );
 }

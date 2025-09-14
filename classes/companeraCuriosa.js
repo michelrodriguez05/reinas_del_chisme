@@ -18,11 +18,11 @@ class companeraCuriosa extends Chismosa {
         this.chismeActual = this.chismes[randomIndex];
 
         console.log(chalk.bgBlackBright(`${this.nombre} hace preguntas aparentemente profesionales a los compañeros de trabajo`))
-        let cambioChisme = Math.floor(Math.random() * 3) + 1;
+        let cambioChisme = Math.floor(Math.random() * 2) + 1;
         let cambioReputacion = Math.random() < 0.5 ? -1 : 1;
 
-        this.nivelChisme = Math.min(10, this.getNivelChisme() + cambioChisme);
-        this.reputacion = Math.max(0, this.getReputacion() + cambioReputacion)
+        this.nivelChisme = Math.min(10, Math.max(0, this.getNivelChisme() + cambioChisme));
+        this.reputacion = Math.min(10, Math.max(0, this.getReputacion() + cambioReputacion));
     }
 
     contarChisme() {
@@ -34,10 +34,10 @@ class companeraCuriosa extends Chismosa {
         console.log(chalk.green(`${this.nombre}: Comenta el chisme como ejemplo de vida en el trabajo — "${this.chismeActual}"`));
 
         let cambioChisme = Math.floor(Math.random() * 2) + 1;
-        let cambioReputacion = Math.random() < 0.3 ? -1 : 3;
+        let cambioReputacion = Math.random() < 0.5 ? -2 : 3;
 
-        this.nivelChisme = Math.min(10, this.getNivelChisme() + cambioChisme);
-        this.reputacion = Math.max(0, this.getReputacion() + cambioReputacion);
+        this.nivelChisme = Math.min(10, Math.max(0, this.getNivelChisme() + cambioChisme));
+        this.reputacion = Math.min(10, Math.max(0, this.getReputacion() + cambioReputacion));
     }
 }
 

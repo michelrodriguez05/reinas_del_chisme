@@ -18,11 +18,11 @@ class companeraCuriosa extends Chismosa {
         this.chismeActual = this.chismes[randomIndex];
 
         console.log(chalk.bgBlackBright(`${this.nombre} Lee chats ajenos desde el último puesto del salón`))
-        let cambioChisme = Math.floor(Math.random() * 3) + 1;
-        let cambioReputacion = Math.random() < 0.5 ? -1 : 3;
+        let cambioChisme = Math.floor(Math.random() * 2) + 1;
+        let cambioReputacion = Math.random() < 0.7 ? -1 : 3;
 
-        this.nivelChisme = Math.min(10, this.getNivelChisme() + cambioChisme);
-        this.reputacion = Math.max(0, this.getReputacion() + cambioReputacion)
+        this.nivelChisme = Math.min(10, Math.max(0, this.getNivelChisme() + cambioChisme));
+        this.reputacion = Math.min(10, Math.max(0, this.getReputacion() + cambioReputacion));
     }
 
     contarChisme() {
@@ -33,11 +33,11 @@ class companeraCuriosa extends Chismosa {
 
         console.log(chalk.green(`${this.nombre}: Filtra el chisme por estados en WhatsApp — "${this.chismeActual}"`));
 
-        let cambioChisme = Math.floor(Math.random() * 2) + 4;
+        let cambioChisme = Math.floor(Math.random() * 2) + 2;
         let cambioReputacion = Math.random() < 0.3 ? -3 : 1;
 
-        this.nivelChisme = Math.min(10, this.getNivelChisme() + cambioChisme);
-        this.reputacion = Math.max(0, this.getReputacion() + cambioReputacion);
+        this.nivelChisme = Math.min(10, Math.max(0, this.getNivelChisme() + cambioChisme));
+        this.reputacion = Math.min(10, Math.max(0, this.getReputacion() + cambioReputacion));
     }
 }
 

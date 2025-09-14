@@ -17,11 +17,11 @@ class TiaVecina extends Chismosa {
         this.chismeActual = this.chismes[randomIndex];
 
         console.log(chalk.bgBlackBright(`${this.nombre} aprovecha la reunión del barrio para escuchar discretamente`))
-        let cambioChisme = Math.floor(Math.random() * 3) + 2
+        let cambioChisme = Math.floor(Math.random() * 2) + 2
         let cambioReputacion = Math.random() < 0.5 ? -1 : 0;
 
-        this.nivelChisme = Math.min(10, this.getNivelChisme() + cambioChisme);
-        this.reputacion = Math.max(0, this.getReputacion() + cambioReputacion)
+        this.nivelChisme = Math.min(10, Math.max(0, this.getNivelChisme() + cambioChisme));
+        this.reputacion = Math.min(10, Math.max(0, this.getReputacion() + cambioReputacion));
     }
 
     contarChisme() {
@@ -35,8 +35,8 @@ class TiaVecina extends Chismosa {
         let cambioChisme = Math.floor(Math.random() * 2) + 1;
         let cambioReputacion = Math.random() < 0.3 ? -2 : 1;
 
-        this.nivelChisme = Math.min(10, this.getNivelChisme() + cambioChisme);
-        this.reputacion = Math.max(0, this.getReputacion() + cambioReputacion);
+        this.nivelChisme = Math.min(10, Math.max(0, this.getNivelChisme() + cambioChisme));
+        this.reputacion = Math.min(10, Math.max(0, this.getReputacion() + cambioReputacion));
     }
 }
 

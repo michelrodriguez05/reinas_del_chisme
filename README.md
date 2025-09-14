@@ -14,7 +14,7 @@ reinas_del_chisme/
 │   ├── tiaVecina.js               # Subclase: Tía vecina
 │   ├── companeraCuriosa.js        # Subclase: Compañera curiosa
 │   └── estudianteEspia.js         # Subclase: Estudiante espía
-├── diagrama_de_clases/            # Imagen del diagrama de clases (opcional)
+├── diagrama_de_clases/            # Imagen del diagrama de clases 
 ├── main.js                        # Punto de entrada (menú + simulación)
 ├── package.json                   # Dependencias y scripts
 └── .gitignore

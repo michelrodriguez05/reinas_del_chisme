@@ -107,6 +107,34 @@ En package.json hay un script útil:
 ````
 Así que ``npm start`` ejecutará la aplicación.
 
+## 🦾 Funcionamiento
+
+### Inicio
+
+<div align="center">
+  <img src="./Readme_images/image_1.png" alt="Inicio" />
+</div>
+
+### Pelea de chismosas
+
+<div align="center">
+  <img src="./Readme_images/image_2.png" alt="Pelea 1" />
+  <br>
+  <img src="./Readme_images/image_3.png" alt="Pelea 2" />
+</div>
+
+### Resultado
+
+<div align="center">
+  <img src="./Readme_images/image_4.png" alt="Resultado" />
+</div>
+
+### Ganador/a
+
+<div align="center">
+  <img src="./Readme_images/image_5.png" alt="Ganador/a" />
+</div>
+
 ## ✅ Buenas prácticas y notas
 
 - La aplicación valida entradas (nombre, reputación y nivel de chisme) y lanza errores cuando detecta valores fuera del rango.

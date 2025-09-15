@@ -1,3 +1,4 @@
+// Importación de librerias 
 import inquirer from "inquirer";
 import chalk from "chalk";
 import boxen from "boxen";
@@ -85,13 +86,12 @@ async function main() {
     await menuPrincipal();
 }
 
-
-
+// Iniciador del programa
 main();
 
-
+// Función para ejecutar la pelea de chismosas
 function peleaChismosas() {
-    // Crear arreglo con las concursantes
+    // Crear arreglo con las chismosas concursantes
     let chismosas = [
         new TiaVecina("Doña Rosa", 7, 2),
         new CompaneraCuriosa("Claudia", 6, 1),
@@ -101,6 +101,8 @@ function peleaChismosas() {
     // Simular 2 rondas por chismosa
     for (let ronda = 1; ronda <= 2; ronda++) {
         console.log(chalk.yellowBright(`\nRonda ${ronda} de chismes:`));
+
+        // Cada chismosa ejecuta dos veces los dos métodos de recolectarInfo() y contarChisme()
         chismosas.forEach(chismosa => {
             chismosa.recolectarInfo();
             chismosa.contarChisme();
@@ -109,6 +111,8 @@ function peleaChismosas() {
 
     // Mostrar estadísticas finales
     console.log(chalk.cyanBright("\n📊 Resultados finales de la pelea de chismosas:"));
+
+    // Para obtener resultados se llaman los metodos de getNivelChisme() y getReputación()
     chismosas.forEach(chismosa => {
         let nivelChisme = chismosa.getNivelChisme();
         let reputacion = chismosa.getReputacion();
@@ -125,6 +129,8 @@ function peleaChismosas() {
     let masViral = chismosas.reduce((conteo, actual) =>
         actual.getNivelChisme() > conteo.getNivelChisme() ? actual : conteo
     );
+
+    // Se renderiza la ganadora del chisme
     console.log(
     boxen(
         chalk.whiteBright.bgYellow.bold("🏆 GANADOR 🏆\n\n") +
